@@ -1,1 +1,14 @@
-# Java_MIPT_2023
+# Contest 1 Task B
+https://contest.yandex.ru/contest/51733/run-report/91755543/
+
+Implement a naive binary search tree for integers. The program receives a sequence of integers as input and builds a tree from them. Elements are added to the tree sequentially according to their input. If the element already exists in the tree, you do not need to add it. Tree balancing is not performed.
+
+For the resulting tree, output a list of all leaves (vertices that have no descendants) in ascending order.
+
+Input format
+At the input, the program receives a sequence of integers separated by a space. There is no number 0 in the sequence, but it ends with the number 0, which means the end of the input, and it is not necessary to add it to the tree.
+
+The number of elements does not exceed 10^9.
+
+Output format
+Print the answer to the task
