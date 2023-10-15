@@ -1,3 +1,12 @@
+# Contest 1 Task A
+https://contest.yandex.ru/contest/51733/run-report/91753705/
+
+You have two numbers 1 <= A,B <= 2 * 10^9. Find their greatest common divisor.
+
+Input format
+The ﬁrst input line contains two integers a and b.
+Output format
+Output the greatest common divisor for a and b.
 # Contest 1 Task B
 https://contest.yandex.ru/contest/51733/run-report/91755543/
 
@@ -11,4 +20,4 @@ At the input, the program receives a sequence of integers separated by a space. 
 The number of elements does not exceed 10^9.
 
 Output format
-Print the answer to the task
+Print the answer to the tas
