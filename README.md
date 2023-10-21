@@ -20,7 +20,9 @@ At the input, the program receives a sequence of integers separated by a space. 
 The number of elements does not exceed 10^9.
 
 Output format
-Print the answer to the tas
+Print the answer to the task
+=======
+Output the greatest common divisor for a and b.
 # Contest 1 Task C
 
 https://contest.yandex.ru/contest/51733/run-report/91755855/
