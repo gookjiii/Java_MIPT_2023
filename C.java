@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
@@ -7,25 +9,12 @@ public class Main {
         int N = txt.length();
 
         int lps[] = new int[M];
-        int j = 0;
         computeLPSArray(pat, M, lps);
 
         int i = 0;
-        while ((N - i) >= (M - j)) {
-            if (pat.charAt(j) == txt.charAt(i)) {
-                j++;
-                i++;
-            }
-            if (j == M) {
-                System.out.print((i - j) + " ");
-                j = lps[j - 1];
-            } else if (i < N && pat.charAt(j) != txt.charAt(i)) {
-                if (j != 0)
-                    j = lps[j - 1];
-                else
-                    i = i + 1;
-            }
-        }
+        int j = 0;
+
+        searchKMP(pat, txt, lps, i, j, M, N);
     }
 
     void computeLPSArray(String pat, int M, int lps[]) {
@@ -43,6 +32,25 @@ public class Main {
                     len = lps[len - 1];
                 } else {
                     lps[i] = len;
+                    i++;
+                }
+            }
+        }
+    }
+
+    void searchKMP(String pat, String txt, int lps[], int i, int j, int M, int N) {
+        while (i < N) {
+            if (pat.charAt(j) == txt.charAt(i)) {
+                i++;
+                j++;
+            }
+            if (j == M) {
+                System.out.print((i - j) + " ");
+                j = lps[j - 1];
+            } else if (i < N && pat.charAt(j) != txt.charAt(i)) {
+                if (j != 0) {
+                    j = lps[j - 1];
+                } else {
                     i++;
                 }
             }
