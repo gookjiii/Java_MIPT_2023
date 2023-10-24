@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 class TreeNode {
     int data;
@@ -11,24 +14,20 @@ class TreeNode {
 }
 
 class BinaryTree {
-    private TreeNode root;
+    TreeNode root;
 
-    public void insert(int data) {
-        root = insertRec(root, data);
-    }
-
-    private TreeNode insertRec(TreeNode curr, int data) {
-        if (curr == null) {
+    public TreeNode insert(TreeNode node, int data) {
+        if (node == null) {
             return new TreeNode(data);
         }
 
-        if (data < curr.data) {
-            curr.left = insertRec(curr.left, data);
-        } else if (data > curr.data) {
-            curr.right = insertRec(curr.right, data);
+        if (data < node.data) {
+            node.left = insert(node.left,data);
+        } else if (data > node.data) {
+            node.right = insert(node.right,data);
         }
-
-        return curr;
+        
+        return node;
     }
 
     public List<Integer> findLeaves() {
@@ -55,15 +54,25 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         BinaryTree tree = new BinaryTree();
+        
+        readInput(tree, sc);
+        
+        List<Integer> leaves = tree.findLeaves();
+        printOutput(leaves);
+    }
+    
+    private static void readInput(BinaryTree tree, Scanner sc) {
         int num;
         while (true) {
             num = sc.nextInt();
             if (num == 0) {
                 break;
             }
-            tree.insert(num);
+            tree.root = tree.insert(tree.root, num);
         }
-        List<Integer> leaves = tree.findLeaves();
+    }
+
+    private static void printOutput(List<Integer> leaves) {
         Collections.sort(leaves);
         for (int leaf : leaves) {
             System.out.print(leaf + " ");
